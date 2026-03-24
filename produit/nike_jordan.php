@@ -1,5 +1,6 @@
 <?php
 require_once './../check_session.php';
+require_once './../config.php';
 $est_connecte = isLoggedIn();
 
 if ($est_connecte) {
@@ -9,6 +10,11 @@ if ($est_connecte) {
     $lien_action = "./../login.php";
     $lien_user = "./../inscription.php";
 }
+
+$id_produit = 8;
+$res = mysqli_query($lien_base, "SELECT list_price FROM products WHERE product_id = $id_produit");
+$row = mysqli_fetch_assoc($res);
+$prix = ($row) ? number_format($row['list_price'], 2, ',', ' ') . "€" : "NC";
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +27,7 @@ if ($est_connecte) {
     <link rel="stylesheet" href="style.css">
     <title>S&D - Sami & Dalil</title>
 </head>
-<body>`n    <!-- Theme Toggle -->`n    <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th�me"></button>
+<body>`n    <!-- Theme Toggle -->`n    <button id="theme-toggle" class="theme-toggle" aria-label="Changer le th�me"></button>
 
     <!-- ################## -->
     <!-- Navigation -->
@@ -53,7 +59,7 @@ if ($est_connecte) {
 
             <div class="product-info">
                 <h1>Jordan</h1>
-                <p class="price"><span>30€</span></p>
+                <p class="price"><span><?php echo $prix; ?></span></p>
                 <p class="description">
                     Cette Jordan de la collection "12A" offre confort et style. Fabriqué à partir de coton 100% de haute qualité, il est idéal pour un usage quotidien.
                 </p>
