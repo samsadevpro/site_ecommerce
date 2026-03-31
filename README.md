@@ -1,4 +1,4 @@
-# 👟 Site E-Commerce - Sneakers Hub
+# 👟 Site E-Commerce - S&D
 
 Un site e-commerce moderne pour la vente de chaussures (Nike, Adidas, Asics), développé en **PHP natif** (sans framework) dans le cadre d'un projet académique (E6). Le site permet aux utilisateurs de naviguer, rechercher des produits, gérer un panier et passer des commandes de manière fluide et sécurisée.
 
